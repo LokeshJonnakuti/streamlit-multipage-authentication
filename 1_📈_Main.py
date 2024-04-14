@@ -1,10 +1,10 @@
-import pickle
 from pathlib import Path
 
 import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import streamlit_authenticator as stauth  # pip install streamlit-authenticator
+import fickling
 
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -29,7 +29,7 @@ usernames = ["pparker", "rmiller","bharath"]
 # load hashed passwords
 file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
-    hashed_passwords = pickle.load(file)
+    hashed_passwords = fickling.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
     "SIPL_dashboard", "abcdef")
